@@ -1,0 +1,125 @@
+% Dies ist das Titelblatt Design der FOSAMATH.
+% Die tikz-Grafik wurde inspiriert durch:
+% http://www.texample.net/tikz/examples/fibonacci-spiral/
+
+\documentclass[a5paper,10pt,fleqn]{book}
+
+\usepackage{mystyle}
+
+\usepackage{trajan}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{Huge}
+	\trjnfamily
+	\noindent\rule{\textwidth}{2pt}
+	\begin{center}
+		\noindent
+		FORMELSAMMLUNG
+	\end{center}
+	\begin{center}
+		\noindent	
+		MATHEMATIK
+	\end{center}
+\end{Huge}
+
+\vfill{}
+
+\noindent
+\resizebox{\textwidth}{!}{
+	\begin{tikzpicture}[
+		background rectangle/.style={fill=gray}, 
+		show background rectangle] 
+  
+	% Fibonacci Platzhalter
+  	\newcounter{a}
+  	\newcounter{b}
+  	\newcounter{temp}
+
+  	% Initialisierung der Fibonacci Platzhalter
+  	\setcounter{a}{0}
+  	\setcounter{b}{1}
+
+  	% Startpunkt der Spirale festlegen
+  	\coordinate (0) at (0,0);
+
+	% Anzahl der Spiralumläufe definieren
+	\foreach \i in {1,...,18}
+ 	{
+		% Hole den "Namen" des letzten Punktes der Spirale
+    		\pgfmathsetmacro{\lastpoint}{\i-1}
+
+		% Berechne den Winkel für die Drehung der Spirale
+    		\pgfmathsetmacro{\startangle}{mod(\i-1,4) * 90}
+
+		% Zeichne die Spirale und speichere den Endpunkt
+    		\draw[white] (\lastpoint) arc 
+      		(\startangle : \startangle + 90 : \value{b}/10.0pt) coordinate (\i);
+
+   		% Berechne die nächste Fibonacci Zahl
+    		\setcounter{temp}{\value{b}}
+    		\addtocounter{b}{\value{a}}
+    		\setcounter{a}{\value{temp}}
+ 	}
+
+ 	% Teilrahmen der Spirale zeichnen
+ 	\foreach \i in {1,3,...,17}
+ 	{
+   		\pgfmathsetmacro{\lastpoint}{\i-1}
+   		\draw[white] (\lastpoint) -| (\i);
+ 	}
+
+ 	\foreach \i in {2,4,...,16}
+ 	{
+   		\pgfmathsetmacro{\lastpoint}{\i-1}
+   		\draw[white] (\lastpoint) |- (\i);
+ 	}
+
+ 	\draw[white] (17) -- (17 |- 18);
+ 
+ 	% Definition der Fibonacci Zahlen platzieren
+ 	\node(eq) at ($(18) + (2.5,1)$) 
+   		[white,text width = 2cm,font=\fontsize{12}{12}\selectfont] {
+   	\begin{displaymath}
+     		f(n) = \left\{
+       		\begin{array}{lr}
+         		0 & n = 0\\
+         		1 & n = 1\\
+         		f(n-1) + f(n-2) & n \geq 2\\
+      		\end{array}
+     		\right.
+   	\end{displaymath}
+  	};
+\end{tikzpicture}}
+
+\vfill{}
+
+\begin{large}
+	\begin{center}
+		\normalfont
+		\noindent
+		Eine Zusammenarbeit von
+			Daniel Winz,
+			Ervin Mazlagi\'c,
+			Adrian Imboden,
+			Philipp Langer,
+			Joseph Häfliger
+	\end{center}
+\end{large}
+
+\begin{large}	
+	\noindent\rule{\textwidth}{2pt}
+	\begin{center}
+		\noindent
+		Version \rom{3} --- \today
+	\end{center}
+\end{large}
+
+
+\end{document}

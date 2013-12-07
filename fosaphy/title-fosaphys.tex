@@ -1,0 +1,87 @@
+\documentclass[a5paper,10pt,fleqn]{book}
+
+\usepackage{mystyle}
+
+\usepackage{trajan}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{Huge}
+	\trjnfamily
+	\noindent\rule{\textwidth}{2pt}
+	\begin{center}
+		\noindent
+		%\textcolor{red}{SOLUTIO ON METHODIS}
+		FORMELSAMMLUNG
+	\end{center}
+	\begin{center}
+		\noindent
+		%\textcolor{red}{MATHEMATICIS}	
+		PHYSIK
+	\end{center}
+\end{Huge}
+
+\vfill{}
+
+\noindent\resizebox{\textwidth}{!}{
+	\begin{tikzpicture}[background rectangle/.style={fill=gray},
+		show background rectangle]
+
+	\draw[white,->] (0,0) -- (0,4.5);
+
+	\def\lzero{(3,0.4) cos (4,0.6) sin (5,0.8) cos (6,0.6) sin (7,0.4)};
+	\fill[white,opacity=0.2] \lzero;
+	\draw[white!50!white] \lzero node[right,white] {$\Psi_0(x)$};
+	\draw[white] (-0.632,0.4) -- (2,0.4) node[right,white] {$E_0$};
+
+	\def\lone{(3,1.5) cos (3.66,1.4) sin (4.33,1.3) cos (5,1.5) sin (5.66,1.7) cos (6.33,1.6) sin (7,1.5)};
+	\fill[white,opacity=0.2] \lone;
+	\draw[white!50!white] \lone node[right,white] {$\Psi_1(x)$};
+	\draw[white] (-1.224,1.5) -- (2,1.5) node[right,white] {$E_1$};
+
+	\def\ltwo{(3,2.6) cos (3.5,2.7) sin (4,2.8) cos (4.5,2.6) sin (5,2.4) cos (5.5,2.6) sin (6,2.8) cos (6.5,2.7) sin 			(7,2.6)};
+	\fill[white,opacity=0.2] \ltwo;
+	\draw[white!50!white] \ltwo node[right,white] {$\Psi_2(x)$};
+	\draw[white] (-1.61,2.6) -- (2,2.6) node[right,white] {$E_2$};
+
+	\draw[white] (0,0) parabola (2,4);
+	\draw[white] (0,0) parabola (-2,4);
+\end{tikzpicture}}
+
+\vfill{}
+
+
+
+\vfill{}
+
+\begin{large}
+	\begin{center}
+		\normalfont
+		\noindent
+		Eine Zusammenarbeit von
+			Daniel Winz,
+			Ervin Mazlagi\'c,
+			Mario Felder
+	\end{center}
+\end{large}
+
+\begin{large}	
+	\noindent\rule{\textwidth}{2pt}
+	\begin{center}
+		\noindent
+		Version \rom{3} --- \today
+	\end{center}
+\end{large}
+
+
+\end{document}
