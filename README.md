@@ -3,10 +3,6 @@ titlepage
 
 Titelseiten für die verschiedenen FOSAs
 
-Mögliche Buchbinder
+Probedruck in Auftrag
 ==
-* http://www.waldis.ch/site/home.aspx
-* http://www.druck-paradies.ch/product_info.php/info/p54_Maturaarbeit--Diplomarbeit-drucken-und-binden.html
-* http://www.abd.ch/
-* http://www.buchmanufaktur.ch/
-* http://www.thomannag.ch/index.php?id=5
+Das FOSA-Team evaluiert aktuell mögliche Buchbinder. Ein Favorit unter den Kandidaten liefert bis Freitag, 13. Dezember 2013 eine erste Probefassung von 4 Exemplaren.
