@@ -34,3 +34,6 @@
 *.vrb
 *.xdy
 *.tdo
+
+# temporary files
+*~
