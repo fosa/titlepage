@@ -1,0 +1,100 @@
+% Dies ist das Titelblatt Design der FOSASTOC.
+% Die tikz-Grafik wurde inspiriert durch:
+% http://www.texample.net/tikz/examples/gnuplot-basics/
+
+\documentclass[a5paper,10pt,fleqn]{book}
+
+\usepackage{mystyle}
+
+\usepackage{trajan}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{Huge}
+	\trjnfamily
+	\noindent\rule{\textwidth}{2pt}
+	\begin{center}
+		\noindent
+		FORMELSAMMLUNG
+	\end{center}
+	\begin{center}
+		\noindent	
+		STOCHASTIK
+	\end{center}
+\end{Huge}
+
+\vfill{}
+
+\noindent
+\resizebox{\textwidth}{!}{
+	\begin{tikzpicture}[
+		background rectangle/.style={fill=gray}, 
+		show background rectangle, domain=-4:4, samples=200] 
+	
+	\draw[dotted, color=white] (-4, 0) grid (4, 4.25);
+	\draw[color=white, ->] (-4, 0) -- (4, 0) node[right] {$x$};
+	\draw[color=white, ->] (0, 0) -- (0, 4.25) node[right] {$P$};
+
+	\draw[color=white] plot[id=x] 
+	function{7*(1/(2*pi*0.5)**0.5)*exp(-1.1*(x)**2)} ;
+
+	\draw[color=white] plot[id=x] 
+	function{8*(1/(2*pi*1)**0.5)*exp(-1*(x)**2)} ;
+
+	\draw[color=white] plot[id=x] 
+	function{8*(1/(2*pi*1.5)**0.5)*exp(-0.9*(x)**2)} ;
+
+	\draw[color=white] plot[id=x] 
+	function{8*(1/(2*pi*2)**0.5)*exp(-0.8*(x)**2)} ;
+
+	\draw[color=white] plot[id=x] 
+	function{8*(1/(2*pi*2.5)**0.5)*exp(-0.7*(x)**2)} ;
+
+	\draw[color=white] plot[id=x] 
+	function{8*(1/(2*pi*3)**0.5)*exp(-0.6*(x)**2)} ;
+
+	\draw[color=white] plot[id=x] 
+	function{8*(1/(2*pi*3.5)**0.5)*exp(-0.5*(x)**2)} ;
+
+	\draw[color=white] plot[id=x] 
+	function{8*(1/(2*pi*4.0)**0.5)*exp(-0.4*(x)**2)} ;
+
+	\draw[color=white] plot[id=x] 
+	function{8*(1/(2*pi*4.5)**0.5)*exp(-0.3*(x)**2)} ;
+
+	\draw[color=white] plot[id=x] 
+	function{8*(1/(2*pi*5.0)**0.5)*exp(-0.2*(x)**2)} ;
+
+
+\end{tikzpicture}}
+
+\vfill{}
+
+\begin{large}
+	\begin{center}
+		\normalfont
+		\noindent
+		Eine Zusammenarbeit von
+			Daniel Winz 
+			und
+			Ervin Mazlagi\'c
+	\end{center}
+\end{large}
+
+\begin{large}	
+	\noindent\rule{\textwidth}{2pt}
+	\begin{center}
+		\noindent
+		% Version \rom{4} --- \today
+		HS13
+	\end{center}
+\end{large}
+
+
+\end{document}
